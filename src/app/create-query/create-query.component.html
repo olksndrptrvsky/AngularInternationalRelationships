@@ -1,0 +1,23 @@
+<div class="container">
+  <select #select (change)="selectCube(select.value)">
+    <option *ngFor="let cube of this.cubes;" [value]="cube">
+      {{cube}}
+    </option>
+  </select>
+  <pre>
+<!--    {{currentCube | json}}-->
+  </pre>
+  <div class="dimensions-container" *ngIf="currentCube != null">
+    123
+      <pre>
+    {{currentCube.dimensions | json}}
+  </pre>
+    <ul class="dimensions">
+      <li class="dimension" *ngFor="let dimension of currentCube.dimensions;">
+        {{dimension.caption}}
+      </li>
+    </ul>
+
+  </div>
+</div>
+

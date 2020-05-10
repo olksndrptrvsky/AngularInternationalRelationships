@@ -1,0 +1,10 @@
+<ul>
+  <div class="container">
+  <li><a routerLink="indexes">Indexes</a></li>
+  <li><a routerLink="createQuery">Create Query</a></li>
+  <li *ngIf="!isLoggedIn(); else logoutBlock" class="login-button"><a routerLink="login">Login</a></li>
+    <ng-template #logoutBlock>
+      <li class="login-button" (click)="logout()"><a routerLink="login">Logout</a></li>
+    </ng-template>
+  </div>
+</ul>

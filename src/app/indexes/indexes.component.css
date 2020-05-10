@@ -1,0 +1,21 @@
+h2 {
+  text-align: center;
+  margin: 40px 0px;
+}
+
+p {
+  font-size: 20px;
+}
+
+.outer-list {
+  list-style: none;
+}
+
+.inner-list>li {
+  font-style: italic;
+  display: block;
+  cursor: pointer;
+  height: 30px;
+  margin-bottom: 20px;
+}
+

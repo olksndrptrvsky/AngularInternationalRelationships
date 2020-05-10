@@ -1,18 +1,3 @@
-body {
-  background-color: beige;
-  padding: 100px;
-
-}
-
-.main-container {
-  background-color: white;
-}
-
-.container {
-  /*background-color: white;*/
-  padding: 0 40px;
-}
-
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -28,7 +13,4 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
-
-
-
 
