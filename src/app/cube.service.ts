@@ -24,4 +24,8 @@ export class CubeService {
   getCube(cubeName: string) : Observable<Cube> {
     return this.http.get<Cube>(`/api/cubes/${cubeName}`);
   }
+
+  performCustomQuery(query: string) : Observable<QueryResult> {
+    return this.http.post<QueryResult>(`/api/cubes/query`, JSON.stringify(query));
+  }
 }

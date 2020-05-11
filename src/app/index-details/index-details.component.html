@@ -1,1 +1,20 @@
-<table id="test"></table>
+<table *ngIf="queryResult">
+  <tr *ngFor="let columnItem of queryResult.columns[0]; index as i;">
+    <th *ngIf="queryResult.rows.length > 0"></th>
+    <th *ngFor="let columnSet of queryResult.columns">
+      {{columnSet[i]}}
+    </th>
+  </tr>
+  <ng-container *ngIf="queryResult.rows.length == 0 && queryResult.values.length > 0">
+    <tr>
+      <td *ngFor="let value of queryResult.values">{{value}}</td>
+    </tr>
+  </ng-container>
+
+  <tr *ngFor="let rowSet of queryResult.rows; index as i">
+    <th>{{getRowFromSet(rowSet)}}</th>
+    <td *ngFor="let columnSet of queryResult.columns; index as j">
+      {{queryResult.values[i*queryResult.columns.length + j]}}
+    </td>
+  </tr>
+</table>

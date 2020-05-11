@@ -1,0 +1,64 @@
+.dimensions-container, .queryStructure, .dimensions-container div {
+  display: inline-block;
+}
+
+.hierarchy div, .level div{
+  cursor: pointer;
+  user-select: none;
+}
+
+
+.hierarchy div:hover, .level div:hover{
+  background-color: #9bfffd;
+}
+
+
+.cube-container, .query-details {
+  float: left;
+  margin-top: 50px;
+}
+
+.dimensions-container li {
+  width: auto;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+tr {
+  border: 1px solid #777777;
+}
+
+td, th {
+  border: 1px solid #777777;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.query-details {
+  margin-left: 100px;
+  min-width: 400px;
+}
+
+.query-structure>table th {
+  width: 100px;
+}
+
+.query-details button {
+  margin-top: 30px;
+}
+
+.execute-button {
+  margin-bottom: 80px;
+}
+
+.query-structure table {
+user-select: none;
+}

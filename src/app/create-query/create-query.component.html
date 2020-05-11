@@ -1,23 +1,73 @@
 <div class="container">
-  <select #select (change)="selectCube(select.value)">
-    <option *ngFor="let cube of this.cubes;" [value]="cube">
-      {{cube}}
-    </option>
-  </select>
-  <pre>
-<!--    {{currentCube | json}}-->
-  </pre>
-  <div class="dimensions-container" *ngIf="currentCube != null">
-    123
-      <pre>
-    {{currentCube.dimensions | json}}
-  </pre>
-    <ul class="dimensions">
-      <li class="dimension" *ngFor="let dimension of currentCube.dimensions;">
-        {{dimension.caption}}
-      </li>
-    </ul>
+  <div class="cube-container">
+    <h3>Cube:</h3>
+    <div class="cubeSelection">
+      <select #select (change)="selectCube(select.value)">
+        <option *ngFor="let cube of this.cubes;" [value]="cube">
+          {{cube}}
+        </option>
+      </select>
+    </div>
 
+    <div class="dimensions-container" *ngIf="currentCube != null">
+      <h3>Dimensions:</h3>
+      <ul class="dimensions">
+        <li class="dimension measure" *ngIf="measure != null">
+          {{measure.caption}}
+          <ul>
+            <li class="level" *ngFor="let member of measure.hierarchies[0].levels[0].members;" >
+              <div (dblclick)="addToQuery([measure.caption, measure.hierarchies[0].caption, member])">
+                {{member}}
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li class="dimension" *ngFor="let dimension of currentCube.dimensions;">
+          {{dimension.caption}}
+          <ul>
+            <li class="hierarchy" *ngFor="let hierarchy of dimension.hierarchies;" >
+              <div (dblclick)="addToQuery([dimension.caption, hierarchy.caption])">
+                {{hierarchy.caption}}
+              </div>
+              <ul>
+                <li class="level" *ngFor="let level of hierarchy.levels;" >
+                  <div (dblclick)="addToQuery([dimension.caption, hierarchy.caption, level.caption])">
+                    {{level.caption}}
+                  </div>
+
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+    </div>
   </div>
+
+
+  <div class="query-details">
+    <div class="query-structure">
+      <h3>Query Structure:</h3>
+      <table>
+        <tr>
+          <th>Columns</th>
+          <td (dblclick)="removeFromQuery(0)">{{queryStructure[0]}}</td>
+        </tr>
+        <tr>
+          <th>Rows</th>
+          <td (dblclick)="removeFromQuery(1)">{{queryStructure[1]}}</td>
+        </tr>
+        <tr>
+          <th>Measures</th>
+          <td (dblclick)="removeFromQuery(2)">{{queryStructure[2]}}</td>
+        </tr>
+      </table>
+      <button type="reset" (click)="clearQueryStructure()" class="clear-button">Clear table</button>
+    </div>
+    <button type="submit" (click)="buildQuery()" class="execute-button">Execute</button>
+    <app-index-details [query]="query" *ngIf="query"></app-index-details>
+  </div>
+  <div class="clearfix"></div>
 </div>
 

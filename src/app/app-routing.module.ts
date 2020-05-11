@@ -4,6 +4,7 @@ import {IndexesComponent} from "./indexes/indexes.component";
 import {IndexDetailsComponent} from "./index-details/index-details.component";
 import {LoginComponent} from "./login/login.component";
 import {CreateQueryComponent} from "./create-query/create-query.component";
+import {TextQueryComponent} from "./text-query/text-query.component";
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'indexes/:name', component: IndexDetailsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'createQuery', component: CreateQueryComponent },
+  { path: 'textQuery', component: TextQueryComponent },
 ];
 
 @NgModule({

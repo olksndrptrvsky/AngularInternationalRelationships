@@ -1,0 +1,8 @@
+<div class="container">
+  <h3>Type your query here: </h3>
+  <form [formGroup]="queryForm" (ngSubmit)="onSubmit(queryForm.value)">
+    <textarea formControlName="query"></textarea>
+    <button class="button" type="submit">Execute</button>
+  </form>
+  <app-index-details [query]="query"  *ngIf="query"></app-index-details>
+</div>

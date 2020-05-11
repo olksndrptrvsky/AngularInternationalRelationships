@@ -1,15 +1,23 @@
-export interface Hierarchy {
+export class Member {
   caption: string;
-  levels: string[];
+}
+export class Level {
+  caption: string;
+  members: Member[];
+}
+
+export class Hierarchy {
+  caption: string;
+  levels: Level[];
 }
 
 
-export interface Dimension {
+export class Dimension {
   caption: string;
   hierarchies: Hierarchy[];
 }
 
-export interface Cube {
+export class Cube {
   caption: string;
   dimensions: Dimension[];
 }
